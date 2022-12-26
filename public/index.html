@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="i favicon/ico" href="/pubic/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/src/style.css">
+  <title>
+    OpenAI API - Text & Code Generation
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js"></script>
+
+  <script type="module" href=""></script>
+
+  <script type="module" href="/server/server.js"></script>
+
+</head>
+
+</head>
+
+<body>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+    </div>
+    <div class="container">
+      <div class="row-grid justify-content-center">
+        <div class="col-lg-12">
+          <div class="card shadow border-0">
+            <div class="card-header bg-default pb-5 text-default">
+              <div class="card-body">
+                <div class="text-center mb-5 row">
+                  <form class="col-8">
+                    <h1 class="text-white">OpenAI API</h1>
+                    <textarea class="form-control" id="prompt" placeholder="Write your prompt here ..."></textarea>
+                    <textarea class="form-control" id="gpt-response" value="."
+                      placeholder="Responses will appear here ..."></textarea>
+                  </form>
+                  <div class="container col-4 text-white">
+                    <div class="text-center justify-content-center">
+                      <div class="w-75 dropdown" data-bs-toggle="dropdown">
+                        <button class="btn bg-secondary" value="Choose Model" type="button" data-bs-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdown-menu">
+                          <span>Choose Model</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-expanded="false" href="#" value="button" id="dropdown-menu">
+                          <script>
+
+                          </script>
+                          <option class="dropdown-item small-font-size" value="text-davinci-003"
+                            data-value="003-davinci Text">003-davinci Text</option>
+                          <option class="dropdown-item small-font-size" value="code-davinci-002"
+                            data-value="002-davinci Code">002-davinci Code</option>
+                          <option class="dropdown-item small-font-size" value="text-search-davinci-query-001"
+                            data-value="Davinci-001 Text Search (Query)">Davinci-001 Text Search (Query)</option>
+                          <option class="dropdown-item small-font-size" value="text-similarity-davinci-001"
+                            data-value="Davinci-001 Text Similarity">Davinci-001 Text Similarity</option>
+                          <option class="dropdown-item small-font-size" value="text-search-davinci-doc-001"
+                            data-value="Davinci-001 Text Search (Doc)">Davinci-001 Text Search (Doc)</option>
+                          <option class="dropdown-item small-font-size" value="code-cushman-001"
+                            data-value="001-cushman Code">001-cushman Code</option>
+                          <option class="dropdown-item small-font-size" value="text-search-curie-doc-001"
+                            data-value="Curie-001 Text Search (Doc)">Curie-001 Text Search (Doc)</option>
+                          <option class="dropdown-item small-font-size" value="text-search-curie-query-001"
+                            data-value="Curie-001 Text Search (Query)">Curie-001 Text Search (Query)</option>
+                          <option class="dropdown-item small-font-size" value="text-similarity-curie-001"
+                            data-value="Curie-001 Text Similarity">Curie-001 Text Similarity</option>
+                          <option class="dropdown-item small-font-size" value="text-search-ada-doc-001"
+                            data-value="Ada-001 Text Search (Doc)">Ada-001 Text Search (Doc)</option>
+                          <option class="dropdown-item small-font-size" value="text-search-ada-query-001"
+                            data-value="Ada-001 Text Search (Query)">Ada-001 Text Search (Query)</option>
+                          <option class="dropdown-item small-font-size" value="text-similarity-ada-001"
+                            data-value="Ada-001 Text Similarity">Ada-001 Text Similarity</option>
+                        </ul>
+                      </div>
+                      <label for="max-token" class="form-label">Max Token</label>
+                      <script type="range" min="0" max="100" class="custom-range" id="exampleRange">
+                        const slider = document.getElementById('exampleRange') as HTMLInputElement;
+
+                        slider.oninput = function() {
+                          console.log(slider.value); // logs the current value of the slider
+                        };</script>
+                      <input type="range" class="form-range w-75" min="0" max="7999" step="1" id="max-token">
+                      <label for="temp" class="form-label w-75">Temp</label>
+                      <input type="range" class="form-range w-75" min="0.0" max="1.0" step="0.1" id="temp">
+                      <label for="top-p" class="form-label w-75">Top P</label>
+                      <input type="range" class="form-range w-75" min="0.0" max="1.0" step="0.1" id="top-p">
+                      <label for="presence-penalty" class="form-label w-75">Presence Penalty</label>
+                      <input type="range" class="form-range w-75" min="0.0" max="1.0" step="0.1" id="presence-penalty">
+                      <label for="frequency-penalty" class="form-label w-75">Frequency Penalty</label>
+                      <input type="range" class="form-range w-75" min="0.0" max="1.0" step="0.1" id="frequency-penalty">
+                      <label for="best-of" class="form-label w-75">Best Of</label>
+                      <input type="range" class="form-range w-75" min="1" max="20" step="1" id="best-of">
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary w-100 m-3" id="submit-button">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/dotenv": "^8.2.0",
+    "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "openai-api": "^1.3.1"
+  },
+  "name": "openai",
+  "version": "1.0.0",
+  "main": "test.js",
+  "types": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "This package is a tiny node wrapper for the openAI API, if you find any issue please feel free to message me or open a PR :).",
+  "devDependencies": {
+    "npm i bootstrap@5.3.0-alpha1": "^5.3.0-alpha1",
+    "@bootstrap-styled/v4": "^5.3.0-alpha1",
+    "@types/node": "^18.11.17",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "node": "^19.3.0"
+  }
+}
